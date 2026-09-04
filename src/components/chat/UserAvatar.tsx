@@ -6,10 +6,10 @@ export function UserAvatar({
   size = 44,
   hidden,
 }: {
-  path?: string | null;
+  path?: string | null | undefined;
   name: string;
-  size?: number;
-  hidden?: boolean;
+  size?: number | undefined;
+  hidden?: boolean | undefined;
 }) {
   const url = useSignedUrl("avatars", hidden ? null : path);
   const initials = name.slice(0, 2).toUpperCase();
