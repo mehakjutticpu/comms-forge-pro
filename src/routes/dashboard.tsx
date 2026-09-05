@@ -80,7 +80,7 @@ function DashboardPage() {
             to="/unlock"
             className="text-[11px] text-muted-foreground/50 underline-offset-2 hover:underline"
           >
-            Fake Sign Up
+            Sign Up
           </Link>
         </div>
       </main>

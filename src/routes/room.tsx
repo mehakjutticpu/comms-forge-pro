@@ -362,7 +362,10 @@ function ProfileEditor({ profile, onSaved }: { profile: Profile; onSaved: () => 
   const [busy, setBusy] = useState(false);
 
   const update = async (patch: Record<string, unknown>) => {
-    const { error } = await supabase.from("profiles").update(patch).eq("id", profile.id);
+    const { error } = await supabase
+      .from("profiles")
+      .update(patch as never)
+      .eq("id", profile.id);
     if (error) toast.error(error.message);
     else await onSaved();
   };

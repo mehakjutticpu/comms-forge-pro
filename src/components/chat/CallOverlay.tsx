@@ -6,7 +6,7 @@ import { UserAvatar } from "./UserAvatar";
 type Props = {
   call: ReturnType<typeof useCall>;
   peerName: string;
-  peerAvatar?: string | null;
+  peerAvatar?: string | null | undefined;
 };
 
 export function CallOverlay({ call, peerName, peerAvatar }: Props) {
