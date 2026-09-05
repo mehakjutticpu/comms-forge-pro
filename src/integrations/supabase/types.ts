@@ -123,34 +123,46 @@ export type Database = {
         Row: {
           content: string | null
           created_at: string
+          deleted_for_everyone: boolean
+          delivered_at: string | null
           duration_seconds: number | null
           id: string
           kind: string
           media_url: string | null
+          reactions: Json
           read_at: string | null
           receiver_id: string
+          reply_to: string | null
           sender_id: string
         }
         Insert: {
           content?: string | null
           created_at?: string
+          deleted_for_everyone?: boolean
+          delivered_at?: string | null
           duration_seconds?: number | null
           id?: string
           kind?: string
           media_url?: string | null
+          reactions?: Json
           read_at?: string | null
           receiver_id: string
+          reply_to?: string | null
           sender_id: string
         }
         Update: {
           content?: string | null
           created_at?: string
+          deleted_for_everyone?: boolean
+          delivered_at?: string | null
           duration_seconds?: number | null
           id?: string
           kind?: string
           media_url?: string | null
+          reactions?: Json
           read_at?: string | null
           receiver_id?: string
+          reply_to?: string | null
           sender_id?: string
         }
         Relationships: [
@@ -159,6 +171,13 @@ export type Database = {
             columns: ["receiver_id"]
             isOneToOne: false
             referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "messages_reply_to_fkey"
+            columns: ["reply_to"]
+            isOneToOne: false
+            referencedRelation: "messages"
             referencedColumns: ["id"]
           },
           {
